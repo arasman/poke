@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
 const Pokemon = ({pokemon}) => {
-  console.log(pokemon.url.split('/').filter(x => x).pop())
+  // console.log(pokemon.url.split('/').filter(x => x).pop())
   const id = pokemon.url.split('/').filter(x => x).pop()
   return(
     <li><Link href={`pokemones/${id}`}>{pokemon.name}</Link></li>
   )
 }
 export default function Pokemones({pokemonesInfo}) {
-  console.log(pokemonesInfo)
+  // console.log(pokemonesInfo)
   return (
     <div>
       <p>Pokemones</p>
