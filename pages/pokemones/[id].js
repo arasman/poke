@@ -1,7 +1,31 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
+/*Possible error to include images out of the current site:
+Unhandled Runtime Error
+Error: Invalid src prop (https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png) on `next/image`, hostname "raw.githubusercontent.com" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+Before:
+const nextConfig = {
+  reactStrictMode: true,
+}
+After
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: ['raw.githubusercontent.com']
+  }
+}
+This change needs restart the server
+*/
 const Pokemon = ({pokemonData}) => {
-    console.log(pokemonData)
+    
     return(
-        <p>lala</p>
+        <div>
+            <h1>{pokemonData.name} number #{pokemonData.id}</h1>
+            <Image src={pokemonData.sprites.front_default} width={400} height={400}/>
+            <Link href="/">Go back to the list</Link>
+        </div>
     )
 }
 
